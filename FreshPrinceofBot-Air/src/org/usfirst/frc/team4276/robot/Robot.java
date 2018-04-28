@@ -18,14 +18,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends SampleRobot {
 
 	public static Joystick xboxController;
-	public static Joystick leftJoystick;
 	TheSinglePivoteer ArmPivoter;
 	iiiiintake Maniulator;
 	WheelyBoysDrive DriveTrain;
 
 
 	public Robot() {
-		xboxController = new Joystick(7);
+		xboxController = new Joystick(3);
 		ArmPivoter = new TheSinglePivoteer(0);;
 		Maniulator = new iiiiintake(5,6);
 		DriveTrain = new WheelyBoysDrive(1, 2, 3, 4);
@@ -47,6 +46,7 @@ public class Robot extends SampleRobot {
 		while (isOperatorControl() && isEnabled()) {
 			DriveTrain.performMainProcessing();
 			Maniulator.performMainProcessing();
+			ArmPivoter.performMainProcessing();
 
 			Timer.delay(.005);
 			
